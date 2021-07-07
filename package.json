@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -32,7 +32,6 @@
     "trailingComma": "es5"
   },
   "name": "aws-cognito-temporary-password-generator",
-  "author": "hugtech.io",
   "module": "dist/aws-cognito-temporary-password-generator.esm.js",
   "size-limit": [
     {
@@ -44,6 +43,12 @@
       "limit": "10 KB"
     }
   ],
+  "author": "hugtech.io",
+  "bugs": {
+    "url": "https://github.com/hugtechio/aws-cognito-temporary-password-generator/issues"
+  },
+  "homepage": "https://github.com/hugtechio/aws-cognito-temporary-password-generator#readme",
+
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.1",
     "husky": "^7.0.1",
