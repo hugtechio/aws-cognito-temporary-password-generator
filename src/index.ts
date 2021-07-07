@@ -37,15 +37,31 @@ export class CognitoPassword {
   public generate(config?: Config): PasswordValue {
     const length = (!config || Object.keys(config).length <= 0 || config.length < this.MINIMUM_LENGTH) ? this.DEFAULT_LENGTH : config.length
     let password: PasswordValue = ''
-    for(let i = 0; i < length; i++) {
-      const idx = Math.floor(Math.random() * 4)
-      const set = this.CHARS[idx]
-      const l = set.length
-      const idx2 = Math.floor(Math.random() * l)
-      const chr = set[idx2]
-      password = password += chr
+    let indexHistory: number[] = []
+    const gen = () => {
+      let p = ''
+      for(let i = 0; i < length; i++) {
+        const idx = Math.floor(Math.random() * 4)
+        indexHistory.push(idx)
+  
+        const set = this.CHARS[idx]
+        const l = set.length
+        const idx2 = Math.floor(Math.random() * l)
+        const chr = set[idx2]
+        p = p += chr
+      }
+      return p
     }
-    return password
+
+    if (indexHistory.includes(0)
+      && indexHistory.includes(1)
+      && indexHistory.includes(2)
+      && indexHistory.includes(3)) {
+        return password
+    } else {
+      indexHistory = []
+      return gen()
+    }
   }
 }
 
