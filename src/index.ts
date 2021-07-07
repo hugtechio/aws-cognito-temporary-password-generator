@@ -53,6 +53,7 @@ export class CognitoPassword {
       return p
     }
 
+    password = gen()
     if (indexHistory.includes(0)
       && indexHistory.includes(1)
       && indexHistory.includes(2)
